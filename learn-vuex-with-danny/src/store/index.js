@@ -7,6 +7,7 @@ export default createStore({
 		counter: 0,
 	},
 	//changes state (cant use async methods)
+	// function(state, commit from action)
 	//aka commit
 	mutations: {
 		increaseCounter(state, randomNumber) {
@@ -32,7 +33,11 @@ export default createStore({
 			).then(response => commit('decreaseCounter', response.data));
 		},
 	},
-	//filters state vefore passed onto components
-	getters: {},
+	//filters state before passed onto components (final touchup)
+	getters: {
+		counterSquared(state) {
+			return state.counter * state.counter;
+		},
+	},
 	modules: {},
 });

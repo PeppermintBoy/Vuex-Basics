@@ -2,11 +2,11 @@
 	<div class="home">
 		<img alt="Vue logo" src="../assets/logo.png" />
 		<div class="counter">
-			{{ counter }}
+			{{ $store.state.counter }}
 		</div>
 		<div class="buttons">
-			<button @click="decreaseCounter">-</button>
-			<button @click="increaseCounter">+</button>
+			<button @click="$store.dispatch('decreaseCounter')">-</button>
+			<button @click="$store.dispatch('increaseCounter')">+</button>
 		</div>
 	</div>
 </template>
@@ -17,15 +17,6 @@
 export default {
 	name: 'Home',
 	components: {},
-
-	methods: {
-		increaseCounter() {
-			this.counter++;
-		},
-		decreaseCounter() {
-			this.counter--;
-		},
-	},
 };
 </script>
 
